@@ -1,0 +1,41 @@
+﻿<Window x:Class="HuntTheBeast.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        SizeToContent="WidthAndHeight"
+        FontSize="46"
+        mc:Ignorable="d"
+        Title="Загони зверя в ловушку" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+    <Window.Background>
+        <ImageBrush ImageSource="vampire_hunter_d_production_background_03.jpg"/>
+    </Window.Background>
+    <StackPanel Margin="15">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="images/logo.png"></Image>
+            <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" FontSize="60" FontFamily="Ravie">Hunt the Beast</TextBlock>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black">Размер поля</TextBlock>
+            <TextBox Name="Width" Margin="10,0,0,0" Width="100" HorizontalContentAlignment="Center">12</TextBox>
+            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Margin="10,0,10,0">x</TextBlock>
+            <TextBox Name="Height" Width="100" HorizontalContentAlignment="Center">10</TextBox>
+        </StackPanel>
+        <Grid HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Grid.Row="0" Grid.Column="0" Margin="0,10,0,0">Ловушек</TextBlock>
+            <TextBox Name="Traps" Grid.Row="0" Grid.Column="1" Width="100" Margin="10,10,0,0" HorizontalContentAlignment="Center">2</TextBox>
+            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0">Охотников</TextBlock>
+            <TextBox Name="Hunters" Grid.Row="1" Grid.Column="1" Width="100" Margin="10,10,0,0" HorizontalContentAlignment="Center">3</TextBox>
+        </Grid>
+        <Button Foreground="#FF730F" FontFamily="Source Sans Pro Black" Margin="0,15,0,0" Width="400" Click="RunClick">Играть</Button>
+    </StackPanel>
+</Window>
