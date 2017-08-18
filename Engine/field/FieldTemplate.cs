@@ -1,17 +1,15 @@
-﻿using System;
-
-namespace Engine.field
+﻿namespace Engine.field
 {
     public class FieldTemplate
     {
         public const int MaxWidth = 50;
         public const int MaxHeight = 50;
 
-        public int Width;
-        public int Height;
-        public int HuntersCount;
-        public int MonstersCount;
-        public int TrapsCount;
+        public readonly int Width;
+        public readonly int Height;
+        public readonly int HuntersCount;
+        public readonly int MonstersCount;
+        public readonly int TrapsCount;
 
         public FieldTemplate(int width, int height, int hunters, int monsters, int traps)
         {

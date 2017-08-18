@@ -26,8 +26,8 @@ namespace HuntTheBeast
             {
                 for (var j = 0; j < field.Height; j++)
                 {
-                    var image = GetImageForTile(field.Tiles[i, j]);
-                    var tile = field.Tiles[i, j];
+                    var image = GetImageForTile(field.GetTile(new Coordinate(i,j)));
+                    var tile = field.GetTile(new Coordinate(i, j));
                     var fieldTile = new FieldTile(image, tile)
                     {
                         Width = GetTileSize(),

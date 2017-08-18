@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <Image Name="Image" MouseUp="Image_MouseUp" MouseDown="Image_MouseDown"></Image>
+        <Image Name="Image" MouseUp="Image_MouseUp"></Image>
     </StackPanel>
     
 </UserControl>

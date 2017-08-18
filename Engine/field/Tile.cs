@@ -17,6 +17,5 @@ namespace Engine.field
         {
             Type = tileType;
         }
-        
     }
 }
