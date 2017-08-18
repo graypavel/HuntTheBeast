@@ -8,8 +8,8 @@
         SizeToContent="WidthAndHeight"
         Title="GameWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
-    <UniformGrid Name="Grid">
+    <Grid Name="Grid" MouseUp="Grid_MouseUp">
 
-    </UniformGrid>
+    </Grid>
 
 </Window>

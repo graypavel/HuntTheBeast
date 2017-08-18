@@ -17,8 +17,11 @@ namespace HuntTheBeast
         {
             InitializeComponent();
             field = gameField;
-            Grid.Rows = field.Width;
-            Grid.Columns = field.Height;
+            Grid.ShowGridLines = true;
+            for (var i = 0; i < field.Width; i++)
+                Grid.RowDefinitions.Add(new RowDefinition());
+            for (var i = 0; i < field.Height; i++)
+                Grid.ColumnDefinitions.Add(new ColumnDefinition());
             for (var i = 0; i < field.Width; i++)
             {
                 for (var j = 0; j < field.Height; j++)
@@ -30,10 +33,11 @@ namespace HuntTheBeast
                         Width = GetTileSize(),
                         Height = GetTileSize(),
                     };
+                    Grid.SetRow(fieldTile, i);
+                    Grid.SetColumn(fieldTile, j);
                     Grid.Children.Add(fieldTile);
                 }
             }
-            
         }
 
         private Image GetImageForTile(Tile tile)
@@ -57,6 +61,15 @@ namespace HuntTheBeast
             var largeSize = field.Width > field.Height ? field.Width : field.Height;
             var size = System.Windows.SystemParameters.PrimaryScreenHeight / largeSize * 0.8;
             return Convert.ToInt32(size);
+        }
+
+        private void Grid_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var fieldTile = e.Source as FieldTile;
+            if (fieldTile != null)
+            {
+                var tile = fieldTile.tile;
+            }
         }
     }
 }

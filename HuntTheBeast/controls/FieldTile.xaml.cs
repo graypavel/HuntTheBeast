@@ -7,7 +7,7 @@ namespace HuntTheBeast.controls
 {
     public partial class FieldTile
     {
-        private Tile tile;
+        public Tile tile;
 
         public FieldTile(Image image, Tile tile)
         {
@@ -18,7 +18,8 @@ namespace HuntTheBeast.controls
 
         private void Image_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            MessageBox.Show("click!");
+            if(tile.Character is Hunter)
+                MessageBox.Show("This is hunter!");
         }
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
