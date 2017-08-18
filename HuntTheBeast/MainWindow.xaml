@@ -8,19 +8,19 @@
         mc:Ignorable="d"
         Title="Загони зверя в ловушку" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
     <Window.Background>
-        <ImageBrush ImageSource="vampire_hunter_d_production_background_03.jpg"/>
+        <ImageBrush ImageSource="images/grass_backgroud.jpg"/>
     </Window.Background>
     <StackPanel Margin="15">
         <StackPanel Orientation="Horizontal">
-            <Image Source="images/logo.png"></Image>
+            <Image Margin="0,-15,0,0" Source="images/logo.png"></Image>
             <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" FontSize="60" FontFamily="Ravie">Hunt the Beast</TextBlock>
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
             <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black">Размер поля</TextBlock>
-            <TextBox Name="Width" Margin="10,0,0,0" Width="100" HorizontalContentAlignment="Center">12</TextBox>
+            <TextBox Name="Width" Margin="10,0,0,0" Width="100" HorizontalContentAlignment="Center">4</TextBox>
             <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Margin="10,0,10,0">x</TextBlock>
-            <TextBox Name="Height" Width="100" HorizontalContentAlignment="Center">10</TextBox>
+            <TextBox Name="Height" Width="100" HorizontalContentAlignment="Center">3</TextBox>
         </StackPanel>
         <Grid HorizontalAlignment="Center">
             <Grid.RowDefinitions>

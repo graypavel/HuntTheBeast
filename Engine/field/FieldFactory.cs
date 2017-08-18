@@ -47,7 +47,7 @@ namespace Engine.field
         private static void SetBeasts()
         {
             var beast = new Beast {Position = GetFreeRandomPosition()};
-            field.Monsters.Add(beast);
+            field.AddMonster(beast);
         }
 
         private static void SetHunters(FieldTemplate template)
@@ -55,8 +55,7 @@ namespace Engine.field
             for (int i = 0; i < template.HuntersCount; i++)
             {
                 var hunter = new Hunter {Position = GetFreeRandomPosition()};
-                field.Hunters.Add(hunter);
-
+                field.AddHunter(hunter);
             }
         }
 
@@ -73,11 +72,10 @@ namespace Engine.field
         {
             if(!FieldContainsFreePositions())
                 throw new Exception("На поле не хватает свободных клеток");
-            var rnd = new Random();
             do
             {
-                var x = rnd.Next(0, field.Width - 1);
-                var y = rnd.Next(0, field.Height - 1);
+                var x = new Random().Next(0, field.Width);
+                var y = new Random().Next(0, field.Height);
                 var position = new Coordinate {x = x, y = y};
                 if (field.IsPositionFreeToMove(position))
                     return position;

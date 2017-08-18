@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HuntTheBeast"
         mc:Ignorable="d"
-        Title="GameWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        SizeToContent="WidthAndHeight"
+        Title="GameWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
     <UniformGrid Name="Grid">
-    
+
     </UniformGrid>
+
 </Window>

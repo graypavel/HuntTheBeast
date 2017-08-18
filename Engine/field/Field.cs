@@ -10,7 +10,7 @@ namespace Engine.field
         public Tile[,] Tiles { get; set; }
 
         private List<Hunter> Hunters;
-        public List<Beast> Monsters;
+        private List<Beast> Monsters;
 
         public Field(Tile[,] tiles)
         {
@@ -21,7 +21,17 @@ namespace Engine.field
             Monsters = new List<Beast>();
         }
 
-        
+        public void AddHunter(Hunter hunter)
+        {
+            Hunters.Add(hunter);
+            Tiles[hunter.Position.x, hunter.Position.y].Character = hunter;
+        }
+
+        public void AddMonster(Beast beast)
+        {
+            Monsters.Add(beast);
+            Tiles[beast.Position.x, beast.Position.y].Character = beast;
+        }
 
         public bool IsPositionFreeToMove(Coordinate position)
         {
@@ -31,12 +41,7 @@ namespace Engine.field
                 case Tile.TileType.Trap:
                     return false;
             }
-            foreach (var hunter in Hunters)
-            {
-                if (hunter.Position == position)
-                    return false;
-            }
-            return true;
+            return Tiles[position.x, position.y].Character == null;
         }
     }
 }
