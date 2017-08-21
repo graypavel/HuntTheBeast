@@ -20,30 +20,25 @@ namespace Engine.field
 
         public Tile GetTile(Coordinate position)
         {
-            return Tiles[position.x, position.y];
+            return Tiles[position.X, position.Y];
         }
 
-        public void AddHunter(Hunter hunter)
+        public void AddCharacter(Character character)
         {
-            Tiles[hunter.Position.x, hunter.Position.y].Character = hunter;
+            Tiles[character.Position.X, character.Position.Y].Character = character;
         }
 
-        public void AddMonster(DumbBeast dumbBeast)
-        {
-            Tiles[dumbBeast.Position.x, dumbBeast.Position.y].Character = dumbBeast;
-        }
-
-        public bool IsPositionFreeToMove(Coordinate position)
+        public bool IsPositionBlank(Coordinate position)
         {
             try
             {
-                var tileToMove = Tiles[position.x, position.y];
-                switch (tileToMove.Type)
+                var tile = Tiles[position.X, position.Y];
+                switch (tile.Type)
                 {
                     case Tile.TileType.Trap:
                         return false;
                 }
-                return Tiles[position.x, position.y].Character == null;
+                return Tiles[position.X, position.Y].Character == null;
             }
             catch (Exception)
             {
@@ -51,9 +46,26 @@ namespace Engine.field
             }
         }
 
+        public bool IsPositionFree(Coordinate position)
+        {
+            try
+            {
+                return Tiles[position.X, position.Y].Character == null;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool IsTrapInPosition(Coordinate position)
+        {
+            return Tiles[position.X, position.Y].Type == Tile.TileType.Trap;
+        }
+
         public void MoveCharacter(Coordinate source, Coordinate destination)
         {
-            if(Tiles[source.x,source.y].Character == null)
+            if(Tiles[source.X,source.Y].Character == null)
                 throw new Exception("В позиции источнике нет персонажа");
             var sourceTile = GetTile(source);
             var destinationTile = GetTile(destination);
@@ -61,5 +73,7 @@ namespace Engine.field
             destinationTile.Character.Position = destination;
             sourceTile.Character = null;
         }
+
+        
     }
 }

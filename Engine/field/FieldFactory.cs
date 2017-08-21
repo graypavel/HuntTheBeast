@@ -14,8 +14,7 @@ namespace Engine.field
             CheckParameters();
             field = new Field(CreateEmptyTiles());
             SetTraps();
-            SetBeasts();
-            SetHunters();
+            SetCharacters();
             return field;
         }
 
@@ -41,19 +40,15 @@ namespace Engine.field
                 throw new Exception("Размер поля слишком мал для заданного количества объектов");
         }
 
-        private static void SetBeasts()
-        {
-            var beast = new DumbBeast {Position = GetFreeRandomPosition()};
-            field.AddMonster(beast);
-        }
-
-        private static void SetHunters()
+        private static void SetCharacters()
         {
             for (var i = 0; i < fieldTemplate.HuntersCount; i++)
             {
                 var hunter = new Hunter {Position = GetFreeRandomPosition()};
-                field.AddHunter(hunter);
+                field.AddCharacter(hunter);
             }
+            var beast = new SneakyBeast() { Position = GetFreeRandomPosition() };
+            field.AddCharacter(beast);
         }
 
         private static void SetTraps()
@@ -61,7 +56,7 @@ namespace Engine.field
             for (var i = 0; i < fieldTemplate.TrapsCount; i++)
             {
                 var freePosition = GetFreeRandomPosition();
-                field.GetTile(new Coordinate(freePosition.x, freePosition.y)).Type = Tile.TileType.Trap;
+                field.GetTile(new Coordinate(freePosition.X, freePosition.Y)).Type = Tile.TileType.Trap;
             }
         }
 
@@ -74,7 +69,7 @@ namespace Engine.field
                 var x = new Random().Next(0, field.Width);
                 var y = new Random().Next(0, field.Height);
                 var position = new Coordinate(x, y);
-                if (field.IsPositionFreeToMove(position))
+                if (field.IsPositionBlank(position))
                     return position;
             } while (true);
         }

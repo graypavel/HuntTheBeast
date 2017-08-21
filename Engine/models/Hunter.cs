@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using Engine.field;
-using Engine.interfaces;
 
 namespace Engine.models
 {
-    public class Hunter: Character, IWalker
+    public class Hunter: Character
     {
-        public void Walk()
+        public override Coordinate GetNextMove(Field field)
         {
+            //Реализуем, если потребуется автоматизировать охотников
             throw new NotImplementedException();
         }
 
-        public override Coordinate GetNextMove(Field field)
+        protected override List<Coordinate> GetAvailableMoves()
         {
             //Реализуем, если потребуется автоматизировать охотников
             throw new NotImplementedException();

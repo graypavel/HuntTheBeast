@@ -72,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Graphics.cs" />
     <Compile Include="views\TileView.xaml.cs">
       <DependentUpon>TileView.xaml</DependentUpon>
     </Compile>

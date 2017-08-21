@@ -12,7 +12,7 @@ namespace HuntTheBeast.views
     {
         private Field field;
         private TileView selectedTile;
-        private Opponent oppenent;
+        private readonly Opponent oppenent;
 
         public GameWindow(Field gameField, Opponent opponent)
         {
@@ -36,40 +36,17 @@ namespace HuntTheBeast.views
             for (var i = 0; i < field.Width; i++)
             for (var j = 0; j < field.Height; j++)
             {
-                var image = GetImageForTile(field.GetTile(new Coordinate(i, j)));
                 var tile = field.GetTile(new Coordinate(i, j));
-                var fieldTile = new TileView(image, tile)
+                var image = Graphics.GetImageForTile(tile);
+                var tileView = new TileView(image, tile)
                 {
                     Width = GetTileSize(),
                     Height = GetTileSize(),
                 };
-                Grid.SetRow(fieldTile, i);
-                Grid.SetColumn(fieldTile, j);
-                Grid.Children.Add(fieldTile);
+                Grid.SetRow(tileView, i);
+                Grid.SetColumn(tileView, j);
+                Grid.Children.Add(tileView);
             }
-        }
-
-        private Image GetImageForTile(Tile tile)
-        {
-            var image = new Image();
-            var character = tile.Character;
-            if (character != null)
-            {
-                if (character is DumbBeast)
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/images/beast.png"));
-                if (character is Hunter)
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter.png"));
-            }
-            else switch (tile.Type)
-            {
-                case Tile.TileType.Trap:
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/images/trap.png"));
-                    break;
-                case Tile.TileType.Common:
-                    image.Source = new BitmapImage(new Uri("pack://application:,,,/images/plain.png"));
-                    break;
-            }
-            return image;
         }
         
         private int GetTileSize()
@@ -110,21 +87,21 @@ namespace HuntTheBeast.views
             switch (e.Key)
             {
                 case Key.Up:
-                    destination = new Coordinate(selectedTile.Tile.Coordinate.x - 1, selectedTile.Tile.Coordinate.y);
+                    destination = new Coordinate(selectedTile.Tile.Coordinate.X - 1, selectedTile.Tile.Coordinate.Y);
                     break;
                 case Key.Down:
-                    destination = new Coordinate(selectedTile.Tile.Coordinate.x + 1, selectedTile.Tile.Coordinate.y);
+                    destination = new Coordinate(selectedTile.Tile.Coordinate.X + 1, selectedTile.Tile.Coordinate.Y);
                     break;
                 case Key.Left:
-                    destination = new Coordinate(selectedTile.Tile.Coordinate.x, selectedTile.Tile.Coordinate.y - 1);
+                    destination = new Coordinate(selectedTile.Tile.Coordinate.X, selectedTile.Tile.Coordinate.Y - 1);
                     break;
                 case Key.Right:
-                    destination = new Coordinate(selectedTile.Tile.Coordinate.x, selectedTile.Tile.Coordinate.y + 1);
+                    destination = new Coordinate(selectedTile.Tile.Coordinate.X, selectedTile.Tile.Coordinate.Y + 1);
                     break;
                 default:
                     return;
             }
-            if (field.IsPositionFreeToMove(destination))
+            if (field.IsPositionFree(destination))
             {
                 field.MoveCharacter(selectedTile.Tile.Coordinate, destination);
                 try

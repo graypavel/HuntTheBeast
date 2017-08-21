@@ -7,7 +7,7 @@ namespace Engine.field
         public enum TileType
         {
             Common,
-            Trap
+            Trap,
         }
 
         public TileType Type { get; set; }
