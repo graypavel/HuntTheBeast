@@ -47,7 +47,9 @@ namespace Engine.field
                 var hunter = new Hunter {Position = GetFreeRandomPosition()};
                 field.AddCharacter(hunter);
             }
-            var beast = new SneakyBeast() { Position = GetFreeRandomPosition() };
+            Character beast = fieldTemplate.SneakyBeast 
+                ? new SneakyBeast {Position = GetFreeRandomPosition()} 
+                : new Beast {Position = GetFreeRandomPosition()};
             field.AddCharacter(beast);
         }
 

@@ -17,9 +17,9 @@
         </StackPanel>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black">Размер поля</TextBlock>
+            <TextBlock Foreground="Khaki" FontFamily="Source Sans Pro Black">Размер поля</TextBlock>
             <TextBox Name="Width" Margin="10,0,0,0" Width="100" HorizontalContentAlignment="Center">4</TextBox>
-            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Margin="10,0,10,0">x</TextBlock>
+            <TextBlock Foreground="Khaki" FontFamily="Source Sans Pro Black" Margin="10,0,10,0">x</TextBlock>
             <TextBox Name="Height" Width="100" HorizontalContentAlignment="Center">3</TextBox>
         </StackPanel>
         <Grid HorizontalAlignment="Center">
@@ -31,11 +31,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Grid.Row="0" Grid.Column="0" Margin="0,10,0,0">Ловушек</TextBlock>
+            <TextBlock Foreground="Khaki" FontFamily="Source Sans Pro Black" Grid.Row="0" Grid.Column="0" Margin="0,10,0,0">Ловушек</TextBlock>
             <TextBox Name="Traps" Grid.Row="0" Grid.Column="1" Width="100" Margin="10,10,0,0" HorizontalContentAlignment="Center">2</TextBox>
-            <TextBlock Foreground="#FF730F" FontFamily="Source Sans Pro Black" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0">Охотников</TextBlock>
+            <TextBlock Foreground="Khaki" FontFamily="Source Sans Pro Black" Grid.Row="1" Grid.Column="0" Margin="0,10,0,0">Охотников</TextBlock>
             <TextBox Name="Hunters" Grid.Row="1" Grid.Column="1" Width="100" Margin="10,10,0,0" HorizontalContentAlignment="Center">3</TextBox>
         </Grid>
-        <Button Foreground="#FF730F" FontFamily="Source Sans Pro Black" Margin="0,15,0,0" Width="400" Click="RunClick">Играть</Button>
+        <CheckBox Name="SneakyBeast" Foreground="Khaki" Margin="0,5,0,0" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="30">Хитрый зверь</CheckBox>
+        <Button FontWeight="Bold" FontFamily="Source Sans Pro Black" Margin="0,15,0,0" Width="400" Click="RunClick">Играть</Button>
     </StackPanel>
 </Window>

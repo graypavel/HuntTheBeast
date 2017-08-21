@@ -104,13 +104,15 @@ namespace HuntTheBeast.views
             if (field.IsPositionFree(destination))
             {
                 field.MoveCharacter(selectedTile.Tile.Coordinate, destination);
+                RedrawField();
                 try
                 {
                     oppenent.MakeMove(field);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(ex.Message, "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Close();
                 }
                 selectedTile = null;
                 RedrawField();

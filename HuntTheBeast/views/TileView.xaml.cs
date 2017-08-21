@@ -6,7 +6,6 @@ namespace HuntTheBeast.views
     public partial class TileView
     {
         public readonly Tile Tile;
-        public bool IsSelected;
 
         public TileView(Image image, Tile tile)
         {

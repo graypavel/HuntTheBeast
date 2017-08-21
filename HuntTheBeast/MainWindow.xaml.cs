@@ -18,11 +18,10 @@ namespace HuntTheBeast
             try
             {
                 var template = new FieldTemplate(int.Parse(Width.Text), int.Parse(Height.Text), int.Parse(Hunters.Text), 1,
-                    int.Parse(Traps.Text));
+                    int.Parse(Traps.Text), (bool)SneakyBeast.IsChecked);
                 var field = FieldFactory.MakeField(template);
                 var opponent = new Opponent();
                 new GameWindow(field, opponent).ShowDialog();
-
             }
             catch (Exception fuckUp)
             {

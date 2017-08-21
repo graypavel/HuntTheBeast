@@ -33,5 +33,19 @@ namespace HuntTheBeast
             }
             return image;
         }
+
+        public static Image GetHunter()
+        {
+            var image = new Image();
+            image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter.png"));
+            return image;
+        }
+
+        public static Image GetSelectedHunter()
+        {
+            var image = new Image();
+            image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter_reverse.png"));
+            return image;
+        }
     }
 }
