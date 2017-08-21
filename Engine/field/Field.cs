@@ -8,7 +8,6 @@ namespace Engine.field
         public int Width { get; }
         public int Height { get; }
 
-
         private Tile[,] Tiles { get; }
 
         public Field(Tile[,] tiles)
@@ -73,7 +72,5 @@ namespace Engine.field
             destinationTile.Character.Position = destination;
             sourceTile.Character = null;
         }
-
-        
     }
 }

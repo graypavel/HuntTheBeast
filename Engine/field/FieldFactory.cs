@@ -18,15 +18,6 @@ namespace Engine.field
             return field;
         }
 
-        private static Tile[,] CreateEmptyTiles()
-        {
-            var tiles = new Tile[fieldTemplate.Width, fieldTemplate.Height];
-            for (var i = 0; i < fieldTemplate.Width; i++)
-            for (var j = 0; j < fieldTemplate.Height; j++)
-                tiles[i, j] = new Tile(Tile.TileType.Common, new Coordinate(i, j));
-            return tiles;
-        }
-
         private static void CheckParameters()
         {
             if (fieldTemplate.Width == 1 || fieldTemplate.Height == 1)
@@ -40,6 +31,24 @@ namespace Engine.field
                 throw new Exception("Размер поля слишком мал для заданного количества объектов");
         }
 
+        private static Tile[,] CreateEmptyTiles()
+        {
+            var tiles = new Tile[fieldTemplate.Width, fieldTemplate.Height];
+            for (var i = 0; i < fieldTemplate.Width; i++)
+            for (var j = 0; j < fieldTemplate.Height; j++)
+                tiles[i, j] = new Tile(Tile.TileType.Common, new Coordinate(i, j));
+            return tiles;
+        }
+
+        private static void SetTraps()
+        {
+            for (var i = 0; i < fieldTemplate.TrapsCount; i++)
+            {
+                var freePosition = GetFreeRandomPosition();
+                field.GetTile(new Coordinate(freePosition.X, freePosition.Y)).Type = Tile.TileType.Trap;
+            }
+        }
+
         private static void SetCharacters()
         {
             for (var i = 0; i < fieldTemplate.HuntersCount; i++)
@@ -51,15 +60,6 @@ namespace Engine.field
                 ? new SneakyBeast {Position = GetFreeRandomPosition()} 
                 : new Beast {Position = GetFreeRandomPosition()};
             field.AddCharacter(beast);
-        }
-
-        private static void SetTraps()
-        {
-            for (var i = 0; i < fieldTemplate.TrapsCount; i++)
-            {
-                var freePosition = GetFreeRandomPosition();
-                field.GetTile(new Coordinate(freePosition.X, freePosition.Y)).Type = Tile.TileType.Trap;
-            }
         }
 
         private static Coordinate GetFreeRandomPosition()
