@@ -37,7 +37,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -45,11 +44,12 @@
     <Compile Include="field\FieldTemplate.cs" />
     <Compile Include="interfaces\ISwimmer.cs" />
     <Compile Include="field\Field.cs" />
+    <Compile Include="models\AbstactBeast.cs" />
     <Compile Include="models\Character.cs" />
     <Compile Include="interfaces\IFlyer.cs" />
     <Compile Include="interfaces\ITeleporter.cs" />
     <Compile Include="interfaces\IWalker.cs" />
-    <Compile Include="models\Beast.cs" />
+    <Compile Include="models\DumbBeast.cs" />
     <Compile Include="models\Coordinate.cs" />
     <Compile Include="models\Hunter.cs" />
     <Compile Include="field\Tile.cs" />

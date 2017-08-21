@@ -28,26 +28,38 @@ namespace Engine.field
             Tiles[hunter.Position.x, hunter.Position.y].Character = hunter;
         }
 
-        public void AddMonster(Beast beast)
+        public void AddMonster(DumbBeast dumbBeast)
         {
-            Tiles[beast.Position.x, beast.Position.y].Character = beast;
+            Tiles[dumbBeast.Position.x, dumbBeast.Position.y].Character = dumbBeast;
         }
 
         public bool IsPositionFreeToMove(Coordinate position)
         {
-            var tileToMove = Tiles[position.x,position.y];
-            switch (tileToMove.Type)
+            try
             {
-                case Tile.TileType.Trap:
-                    return false;
+                var tileToMove = Tiles[position.x, position.y];
+                switch (tileToMove.Type)
+                {
+                    case Tile.TileType.Trap:
+                        return false;
+                }
+                return Tiles[position.x, position.y].Character == null;
             }
-            return Tiles[position.x, position.y].Character == null;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public void MoveCharacter(Coordinate source, Coordinate destination)
         {
             if(Tiles[source.x,source.y].Character == null)
                 throw new Exception("В позиции источнике нет персонажа");
+            var sourceTile = GetTile(source);
+            var destinationTile = GetTile(destination);
+            destinationTile.Character = sourceTile.Character;
+            destinationTile.Character.Position = destination;
+            sourceTile.Character = null;
         }
     }
 }

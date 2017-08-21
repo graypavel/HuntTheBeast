@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using Engine.field;
+using Engine.models;
+using HuntTheBeast.views;
 
 namespace HuntTheBeast
 {
@@ -15,12 +17,11 @@ namespace HuntTheBeast
         {
             try
             {
-                var template = new FieldTemplate(int.Parse(Width.Text), int.Parse(Height.Text), int.Parse(Hunters.Text),
-                    1,
+                var template = new FieldTemplate(int.Parse(Width.Text), int.Parse(Height.Text), int.Parse(Hunters.Text), 1,
                     int.Parse(Traps.Text));
-
                 var field = FieldFactory.MakeField(template);
-                new GameWindow(field).ShowDialog();
+                var opponent = new Opponent();
+                new GameWindow(field, opponent).ShowDialog();
 
             }
             catch (Exception fuckUp)

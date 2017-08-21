@@ -23,8 +23,8 @@ namespace Engine.field
         {
             var tiles = new Tile[fieldTemplate.Width, fieldTemplate.Height];
             for (var i = 0; i < fieldTemplate.Width; i++)
-                for (var j = 0; j < fieldTemplate.Height; j++)
-                    tiles[i, j] = new Tile(Tile.TileType.Common);
+            for (var j = 0; j < fieldTemplate.Height; j++)
+                tiles[i, j] = new Tile(Tile.TileType.Common, new Coordinate(i, j));
             return tiles;
         }
 
@@ -43,7 +43,7 @@ namespace Engine.field
 
         private static void SetBeasts()
         {
-            var beast = new Beast {Position = GetFreeRandomPosition()};
+            var beast = new DumbBeast {Position = GetFreeRandomPosition()};
             field.AddMonster(beast);
         }
 
