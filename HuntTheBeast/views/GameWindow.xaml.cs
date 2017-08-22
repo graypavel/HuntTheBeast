@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 using Engine.field;
 using Engine.models;
 
@@ -37,11 +36,10 @@ namespace HuntTheBeast.views
             for (var j = 0; j < field.Height; j++)
             {
                 var tile = field.GetTile(new Coordinate(i, j));
-                var image = Graphics.GetImageForTile(tile);
-                var tileView = new TileView(image, tile)
+                var tileView = new TileView(Graphics.GetImageForTile(tile), tile)
                 {
                     Width = GetTileSize(),
-                    Height = GetTileSize(),
+                    Height = GetTileSize()
                 };
                 Grid.SetRow(tileView, i);
                 Grid.SetColumn(tileView, j);
@@ -64,18 +62,18 @@ namespace HuntTheBeast.views
                 if (selectedTile == null)
                 {
                     selectedTile = tileView;
-                    selectedTile.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter_reverse.png"));
+                    selectedTile.Image.Source = Graphics.GetSelectedHunter();
                 }
                 else if (tileView.Equals(selectedTile))
                 {
-                    tileView.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter.png"));
+                    tileView.Image.Source = Graphics.GetHunter();
                     selectedTile = null;
                 }
                 else
                 {
-                    selectedTile.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter.png"));
+                    selectedTile.Image.Source = Graphics.GetHunter();
                     selectedTile = tileView;
-                    selectedTile.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter_reverse.png"));
+                    selectedTile.Image.Source = Graphics.GetSelectedHunter();
                 }
             }
         }

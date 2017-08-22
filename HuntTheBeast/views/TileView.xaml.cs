@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows.Media.Imaging;
 using Engine.field;
 
 namespace HuntTheBeast.views
@@ -7,10 +7,10 @@ namespace HuntTheBeast.views
     {
         public readonly Tile Tile;
 
-        public TileView(Image image, Tile tile)
+        public TileView(BitmapImage image, Tile tile)
         {
             InitializeComponent();
-            Image.Source = image.Source;
+            Image.Source = image;
             Tile = tile;
         }
     }
