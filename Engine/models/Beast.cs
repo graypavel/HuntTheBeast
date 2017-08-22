@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using Engine.field;
+using Engine.interfaces;
 
 namespace Engine.models
 {
-    public class Beast : Character
+    public class Beast : Character, ICowardBeast
     {
         protected Field Field;
 
-        public override Coordinate GetNextMove(Field field)
+        public Coordinate Run(Field field)
         {
             Field = field;
             var moves = GetAvailableMoves();
@@ -35,7 +36,7 @@ namespace Engine.models
             return moves;
         }
 
-        protected Coordinate SelectMove(List<Coordinate> moves)
+        private Coordinate SelectMove(List<Coordinate> moves)
         {
             var rnd = new Random();
             var randomPosition = moves[rnd.Next(moves.Count)];

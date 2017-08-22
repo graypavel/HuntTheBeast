@@ -1,5 +1,6 @@
 ﻿using System;
 using Engine.field;
+using Engine.interfaces;
 
 namespace Engine.models
 {
@@ -11,10 +12,19 @@ namespace Engine.models
         {
             field = gameField;
             var beast = FindBeast();
-            var movePosition = beast.GetNextMove(field);
-            if(field.IsTrapInPosition(movePosition))
-                throw new Exception("Зверь попался в ловушку!");
-            field.MoveCharacter(beast.Position, movePosition);
+            if (beast is ICowardBeast)
+            {
+                var runPosition = (beast as ICowardBeast).Run(field);
+                if (field.IsTrapInPosition(runPosition))
+                    throw new Exception("Зверь попался в ловушку!");
+                field.MoveCharacter(beast.Position, runPosition);
+            }
+            else if (beast is IAgressiveBeast)
+            {
+                //var hunters = GetHuntersPosition(field)
+                //var hunterPosition = DetectNearestHunter(hunters)
+                //Chase(hunterPosition)
+            }
         }
 
         private Character FindBeast()

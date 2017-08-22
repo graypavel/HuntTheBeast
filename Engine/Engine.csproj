@@ -43,6 +43,8 @@
     <Compile Include="field\FieldFactory.cs" />
     <Compile Include="field\FieldTemplate.cs" />
     <Compile Include="field\Field.cs" />
+    <Compile Include="interfaces\IAgressiveBeast.cs" />
+    <Compile Include="interfaces\ICowardBeast.cs" />
     <Compile Include="models\Character.cs" />
     <Compile Include="models\Beast.cs" />
     <Compile Include="field\Coordinate.cs" />

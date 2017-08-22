@@ -6,11 +6,11 @@ namespace Engine.models
 {
     public class Hunter: Character
     {
-        public override Coordinate GetNextMove(Field field)
-        {
-            //Реализуем, если потребуется автоматизировать охотников
-            throw new NotImplementedException();
-        }
+        //public override Coordinate GetNextMove(Field field)
+        //{
+        //    //Реализуем, если потребуется автоматизировать охотников
+        //    throw new NotImplementedException();
+        //}
 
         protected override List<Coordinate> GetAvailableMoves()
         {
