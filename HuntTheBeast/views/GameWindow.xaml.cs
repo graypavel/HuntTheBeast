@@ -65,7 +65,6 @@ namespace HuntTheBeast.views
                 {
                     selectedTile = tileView;
                     selectedTile.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter_reverse.png"));
-                    
                 }
                 else if (tileView.Equals(selectedTile))
                 {
@@ -74,7 +73,9 @@ namespace HuntTheBeast.views
                 }
                 else
                 {
-                    MessageBox.Show("Одновременно можно выбрать только одного охотника", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    selectedTile.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter.png"));
+                    selectedTile = tileView;
+                    selectedTile.Image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter_reverse.png"));
                 }
             }
         }

@@ -56,11 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="views\TileView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="views\GameWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\TileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -73,11 +73,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Graphics.cs" />
-    <Compile Include="views\TileView.xaml.cs">
-      <DependentUpon>TileView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="views\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\TileView.xaml.cs">
+      <DependentUpon>TileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

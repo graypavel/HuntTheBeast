@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Engine.field;
@@ -31,20 +28,6 @@ namespace HuntTheBeast
                     image.Source = new BitmapImage(new Uri("pack://application:,,,/images/plain.png"));
                     break;
             }
-            return image;
-        }
-
-        public static Image GetHunter()
-        {
-            var image = new Image();
-            image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter.png"));
-            return image;
-        }
-
-        public static Image GetSelectedHunter()
-        {
-            var image = new Image();
-            image.Source = new BitmapImage(new Uri("pack://application:,,,/images/hunter_reverse.png"));
             return image;
         }
     }
